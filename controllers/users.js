@@ -70,6 +70,10 @@ module.exports.updateCurrentUser = (req, res, next) => {
       res.send(user);
     })
     .catch((err) => {
+      if (err.code === 11000) {
+        next(new ConflictError());
+        return;
+      }
       switch (err.name) {
         case ERROR_NAMES.VALIDATION_ERROR:
           next(new ValidationError());

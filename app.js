@@ -2,10 +2,6 @@ const express = require('express');
 const { connect, connection } = require('mongoose');
 const {
   EXPRESS_ENABLE_EXTENDED_URL_ENCODE,
-  EXPRESS_RATE_LIMIT_LEGACY_HEADERS,
-  EXPRESS_RATE_LIMIT_MAX,
-  EXPRESS_RATE_LIMIT_STANDARD_HEADERS,
-  EXPRESS_RATE_LIMIT_WINDOW_MS,
   EXPRESS_SERVER_PORT,
   MONGOOSE_AUTO_INDEX,
   MONGOOSE_CONNECTION_STRING,
@@ -13,6 +9,12 @@ const {
   MONGOOSE_USE_UNIFIED_TOPOLOGY,
 } = require('./environment');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const {
+  EXPRESS_RATE_LIMIT_WINDOW_MS,
+  EXPRESS_RATE_LIMIT_MAX,
+  EXPRESS_RATE_LIMIT_STANDARD_HEADERS,
+  EXPRESS_RATE_LIMIT_LEGACY_HEADERS,
+} = require('./utils/rateLimitConfig');
 
 require('dotenv').config();
 
