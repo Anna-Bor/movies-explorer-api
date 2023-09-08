@@ -1,6 +1,6 @@
 {
   "name": "movies-explorer-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Бэкенд дипломной работы на курсе веб-разработчика",
   "main": "app.js",
   "scripts": {

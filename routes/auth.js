@@ -6,7 +6,7 @@ router.post(
   '/signin',
   celebrate({
     body: Joi.object().keys({
-      email: Joi.string().required().email(),
+      email: Joi.string().required().email({ minDomainSegments: 1, tlds: { allow: false } }),
       password: Joi.string().required(),
     }),
   }),
@@ -17,7 +17,7 @@ router.post(
   celebrate({
     body: Joi.object().keys({
       name: Joi.string().required().min(2).max(30),
-      email: Joi.string().required().email(),
+      email: Joi.string().required().email({ minDomainSegments: 1, tlds: { allow: false } }),
       password: Joi.string().required(),
     }),
   }),

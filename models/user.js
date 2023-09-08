@@ -15,7 +15,7 @@ const userSchema = new Schema({
     unique: true,
     required: true,
     validate: {
-      validator: (email) => isEmail(email),
+      validator: (email) => isEmail(email, { require_tld: false }),
       message: VALIDATION_ERROR,
     },
   },
